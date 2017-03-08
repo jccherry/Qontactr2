@@ -16,6 +16,9 @@ class Data{
     static let sharedInstance = Data()
     init(){}
     
+    var numberQards: Int = 0
+    
+    
     //reference to the firebase database
     let databaseRef: FIRDatabaseReference = FIRDatabase.database().reference()
     

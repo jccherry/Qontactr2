@@ -29,6 +29,15 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: "profileSegue", sender: nil)
     }
     
+    @IBAction func newQardButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "newQardSegue", sender: nil)
+    }
+    
+    @IBAction func qardViewButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "qardViewSegue", sender: nil)
+    }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
