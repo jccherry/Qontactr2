@@ -18,7 +18,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         
         //google sign in code
         GIDSignIn.sharedInstance().uiDelegate = self
-
+        GIDSignIn.sharedInstance().signInSilently()
+        
     }
 
 }

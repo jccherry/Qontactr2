@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520C10011E6F7004000F8841 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C10001E6F7004000F8841 /* HomeViewController.swift */; };
+		520C10031E6F72C5000F8841 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C10021E6F72C5000F8841 /* Data.swift */; };
+		520C10061E6F7F44000F8841 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C10051E6F7F44000F8841 /* ProfileViewController.swift */; };
 		5220BE901E6F0EB000D2BD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220BE8F1E6F0EB000D2BD6A /* AppDelegate.swift */; };
 		5220BE921E6F0EB000D2BD6A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220BE911E6F0EB000D2BD6A /* LoginViewController.swift */; };
 		5220BE951E6F0EB000D2BD6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5220BE931E6F0EB000D2BD6A /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520C10001E6F7004000F8841 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		520C10021E6F72C5000F8841 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		520C10051E6F7F44000F8841 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5220BE8C1E6F0EB000D2BD6A /* Qontactr2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qontactr2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5220BE8F1E6F0EB000D2BD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5220BE911E6F0EB000D2BD6A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		520C10041E6F72CC000F8841 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				520C10021E6F72C5000F8841 /* Data.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		5220BE831E6F0EB000D2BD6A = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +88,7 @@
 		5220BE8E1E6F0EB000D2BD6A /* Qontactr2 */ = {
 			isa = PBXGroup;
 			children = (
+				520C10041E6F72CC000F8841 /* Classes */,
 				5220BEA41E6F145000D2BD6A /* Other */,
 				5220BEA51E6F145900D2BD6A /* Storyboards */,
 				5220BEA31E6F144300D2BD6A /* View Controllers */,
@@ -84,6 +99,8 @@
 		5220BEA31E6F144300D2BD6A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				520C10051E6F7F44000F8841 /* ProfileViewController.swift */,
+				520C10001E6F7004000F8841 /* HomeViewController.swift */,
 				5220BE911E6F0EB000D2BD6A /* LoginViewController.swift */,
 			);
 			name = "View Controllers";
@@ -252,6 +269,9 @@
 			files = (
 				5220BE921E6F0EB000D2BD6A /* LoginViewController.swift in Sources */,
 				5220BE901E6F0EB000D2BD6A /* AppDelegate.swift in Sources */,
+				520C10061E6F7F44000F8841 /* ProfileViewController.swift in Sources */,
+				520C10011E6F7004000F8841 /* HomeViewController.swift in Sources */,
+				520C10031E6F72C5000F8841 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
