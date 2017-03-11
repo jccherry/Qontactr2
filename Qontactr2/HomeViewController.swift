@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func newQardButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "newQardSegue", sender: nil)
+        data.databaseRef.child("user_profiles").child(data.userID()).child("qards").childByAutoId().child("name").setValue("John Chiaramonte")
     }
     
     @IBAction func qardViewButton(_ sender: Any) {

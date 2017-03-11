@@ -98,41 +98,12 @@
                     <connections>
                         <outlet property="nameLabel" destination="Ybl-av-gCm" id="Xbs-Xa-47V"/>
                         <segue destination="Jzi-cf-YDd" kind="presentation" identifier="profileSegue" id="WiR-Nt-8LJ"/>
-                        <segue destination="udR-4B-NYu" kind="presentation" identifier="newQardSegue" id="DxL-Jl-gnb"/>
                         <segue destination="jHI-GG-LfO" kind="presentation" identifier="qardViewSegue" id="jzw-Cb-6Fe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdK-7p-irp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="760.79999999999995" y="36.431784107946029"/>
-        </scene>
-        <!--New Qard View Controller-->
-        <scene sceneID="e9W-KC-OrV">
-            <objects>
-                <viewController id="udR-4B-NYu" customClass="NewQardViewController" customModule="Qontactr2" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SYI-XZ-oeC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Vp7-ky-Y6d"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iat-G9-dn8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNq-Ci-GN5">
-                                <rect key="frame" x="16" y="109" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="backButton:" destination="udR-4B-NYu" eventType="touchUpInside" id="5vc-k4-0a8"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3a8-s7-eDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1516" y="800"/>
         </scene>
         <!--Qards View Controller-->
         <scene sceneID="YRY-KM-L0w">
@@ -151,29 +122,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Hff-ln-1iq" detailTextLabel="oel-SW-5SE" style="IBUITableViewCellStyleSubtitle" id="o4B-y5-n96">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="o4B-y5-n96" customClass="QardTableViewCell" customModule="Qontactr2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o4B-y5-n96" id="EuG-eJ-I1V">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hff-ln-1iq">
-                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-7D-out">
+                                                    <rect key="frame" x="8" y="8" width="264" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oel-SW-5SE">
-                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="mr8-7D-out" id="7Ns-qJ-fA5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -194,11 +161,50 @@
                     </view>
                     <connections>
                         <outlet property="qardTable" destination="eIj-FI-lf3" id="0rV-sH-xLI"/>
+                        <segue destination="YVt-LP-kW4" kind="presentation" identifier="viewQardSegue" id="um1-nM-e7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsa-dF-ytO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="-688.60569715142435"/>
+            <point key="canvasLocation" x="1516" y="-690.40479760119945"/>
+        </scene>
+        <!--View Qard View Controller-->
+        <scene sceneID="pQO-BO-U84">
+            <objects>
+                <viewController id="YVt-LP-kW4" customClass="ViewQardViewController" customModule="Qontactr2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tBG-s3-Qy5"/>
+                        <viewControllerLayoutGuide type="bottom" id="QSd-6x-XHH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V1y-I0-uP4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7g-45-oaR">
+                                <rect key="frame" x="16" y="258" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79d-0d-on7">
+                                <rect key="frame" x="16" y="308" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="keyLabel" destination="U7g-45-oaR" id="IbR-VX-oGS"/>
+                        <outlet property="nameLabel" destination="79d-0d-on7" id="GZ7-VP-ahY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFn-ka-52c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2260" y="-690.40479760119945"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Cl3-9m-3bQ">

@@ -14,8 +14,8 @@ class QardsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let data = Data.sharedInstance
     var qardSnaps = [FIRDataSnapshot]()
-    var qards = [Qard]()
-    var qardNames = [String]()
+    var didLoadLast = true
+
 
     @IBOutlet var qardTable: UITableView!
     
@@ -24,55 +24,78 @@ class QardsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! QardTableViewCell
         
-        cell.textLabel?.text = qardNames[indexPath.row]
+        data.databaseRef.child("user_profiles").child(data.userID()).child("qards").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let keys = ((snapshot.value as AnyObject).allKeys)! as? [String]
+            //print(keys?[indexPath.row] ?? "")
+            
+            
+            let sortedKeys = keys?.sorted()
+            
+            let key:String = (sortedKeys?[indexPath.row])!
+            cell.keyString = key
+            
+            self.data.databaseRef.child("user_profiles").child(self.data.userID()).child("qards").child(key).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                let qardDict = snapshot.value! as! NSDictionary
+                
+                cell.nameLabel?.text = qardDict["name"] as? String ?? "Meme"
+            })
+            
+            
+        })
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return qardNames.count
+        return qardSnaps.count
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let destVC: ViewQardViewController = ViewQardViewController()
+        
+        destVC.key = (tableView.cellForRow(at: indexPath) as! QardTableViewCell).keyString
+        
+        self.present(destVC, animated: true, completion: nil)
+ 
+    }
+    
+    func reloadTable(){
 
         data.databaseRef.child("user_profiles").child(data.userID()).child("qards").observeSingleEvent(of: .value, with: { (snapshot) in
-        
-            //let dict = snapshot.value! as! NSDictionary
+            self.qardSnaps = []
             
             for item in snapshot.children{
                 self.qardSnaps.append(item as! FIRDataSnapshot)
+
             }
-            
-            let keys = ((snapshot.value as AnyObject).allKeys)! as? [String]
-            print(keys)
-            
-            var count: Int = 0
-            for qard in self.qardSnaps{
-                
-                
-                let dict = qard.value! as! NSDictionary
-                
-                self.qardNames.append((dict["name"] as? String)!)
-                print((dict["name"] as? String)!)
-                
-                self.qardTable.reloadData()
- 
-                /*
-                let newQard = Qard(name: (dict["name"] as? String)!)
-                newQard.key =
-                
-                count +=1
-                */
-            }
+
+            self.qardTable.reloadData()
             
         })
         
-        print(qardNames)
+    }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        reloadTable()
+    
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         
-        
+        if didLoadLast {
+            didLoadLast = false
+        } else {
+            reloadTable()
+        }
+
     }
 
 
